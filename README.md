@@ -1,24 +1,36 @@
-# README
+# Minimal rails GOV.UK design system application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a minimal rails application using the GOV.UK design system.
 
-Things you may want to cover:
+![Screenshot of the running application. A GOV.UK page with heading Home#index and a paragraph saying Find me in app/views/home/index.html.erb The footer shows the royal arms and states that content is available under the Open Government Licence](docs/images/running-application-screenshot.png)
 
-* Ruby version
+This uses modern (as of 2023) rails, so:
 
-* System dependencies
+- [propshaft](https://github.com/rails/propshaft) for the asset pipeline
+- [jsbundling-rails](https://github.com/rails/jsbundling-rails) and [esbuild](https://esbuild.github.io/) for bundling javascript
+- [cssbundling-rails](https://github.com/rails/cssbundling-rails) and [sass](https://www.npmjs.com/package/sass) for compiling CSS
 
-* Configuration
+By "minimal" I mean without any of the usual rails fancy bits. Specifically, this application was created with:
 
-* Database creation
+```
+rails new . \
+  --skip-action-cable \
+  --skip-action-mailbox \
+  --skip-action-mailer \
+  --skip-action-text \
+  --skip-active-job \
+  --skip-active-storage \
+  --skip-bootsnap \
+  --skip-hotwire \
+  --skip-jbuilder \
+  --skip-spring \
+  --skip-system-test \
+  --skip-turbolinks \
+  --asset-pipeline=propshaft \
+  --javascript=esbuild \
+  --css=sass
+```
 
-* Database initialization
+All of these things would work fine with the application, I just like to start with something minimal and not have to keep a bunch of dependencies I don't use up to date.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Have a look at the first ~8 commits to follow along with the setup.
